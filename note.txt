@@ -1,0 +1,494 @@
+1.Class_name variable_name = xxx; 
+2.Class_name.method(variable_name);
+3.for(Class_name v_n = 0; v_n < variable.method(); i++)(边界条件的确定：只要满足条件的都会执行,确定条件值为最先不满足中间条件的值)
+  while(边界条件的确定：只要满足条件的都会执行,确定条件值为最先不满足中间条件的值)
+	C_n.method()//one line without {}
+4.javac Class_name.java
+5.java Class_name // run from the main ，每个类可以有一个main函数用于单元测试
+6.comment must be decorate by /*  */ and //
+7.interger type byte < short < int(2billion) < long
+8.0b 二进制 0x十六进制  0b1001 = 9
+9.float double 默认double双精度
+10.char decorated by '  ', 'a' != "a",'a' is char, "a" is string, char 2 bytes, decorated by \u is transform meaning
+11.boolean false true,  cant transform with integer
+12.fundamental_type variable_name// not Fundamental
+13.final == const, final fundamental_type VARIABLE_NAME//常数的初始化
+14.class final : decorator final fundamental_name V_N = value;构造对象时必须初始化此值，即构造方法必须有这个值。final表示指针指向地址不变，但地址的内容可变。
+final类：decorator final class c_1 extends c_0{}//常数类不能被继承
+final函数：decorator final f_0(t0 p0){}//常数方法不能被子类复写
+final类里方法自动final，域不final
+
+15.处理的不是对象（但可以处理静态域）的方法是静态方法，因为没有隐式参数this
+16.import static java.Class.*
+17.type transform 中，隐式格式转换中，小格式向大格式转， 整数转小数只能int=>double，字符转数字只能转int，int不可转boolean故不可以把int当作判定条件（以0为假）
+18.显示格式转换：type0 v_n0 = (type1) v_n1; 小数转整数只能通过强制转换
+19.&&与， ||或
+20.1 > 3? "1>3":"1 < 3";condtion is true return the first expression
+21.位运算 &, |, ^(xor), ~(not)
+22.>> << 左移，右移
+23.静态方法直接由类调用，而不是对象。（但可以由对象调用，因为类与对象共享一个静态域，但静态方法与对象无关（静态方法不能操控对象实例域），故最好由类调用static）
+什么时候用静态方法，静态方法只能访问静态域，实例方法可以访问静态域与实例域。静态域归类所有（只有一份，并且非线程安全），实例域归实例所有：
+1）.显式参数都可以搞定
+2）.与对象无关时
+24.String不可变数据类型，自动回收内存机制，变量类似于内存索引
+25.用equals检测数值相等（e_n.equals(o_n)），用==检测内存相等。
+26.null表示内存没有地址，“”表示内存中有地址，是一个空内容对象
+27.不可重复命名变量
+28.块作用域{}，并且可命名，s_c:{},有了块作用域无分号，内域可索引外域， 外域不可索引内域，内域外域都不可重命名
+29.if(condition){}else if{}else if{}else{}，同属一个域
+30.while(condition){}
+31.
+32.自除有隐式操作，int a = 100 a/=2.5 a=40。两个整数除法结果有截取,Double优先级最高，两个操作数有Double必变小数
+32.
+switch(condition){
+	case1:
+		break;
+	case2:
+		break;
+	default:
+		break;
+}
+33.break可中断while循环, break s_n,中断域。continue 忽略本次循环continue后面语句，但不忽略for中的更新语句
+34.编译与运行是不同的，编译基于语法域检测，运行基于运行域检测
+35.type[] a_n = new type[len], 初始化后固定长度，数字为0， boolean为false， char为u0000不显示，String为null，对象为Null 
+36.for(type element:arr){...} == for element in arrNull
+37.type[] a_n = {e0, e1, e2...} or type[] a_n = new int[]{e0, e1, e2...}
+38.数组赋值都是复制指针，而不是复制内存。
+39.多维数组type[][] a_n = {{}, {}, {}}， type[][] a_n = new type[num][num or not] must 1st dimension length
+40.arr.length回长度
+41.对象全部保存在堆里
+42.不同的类表达不同的概念
+43.静态工厂方法不实例化新对象
+44.访问器方法是新生成对象，更改器方法是更改目前对象。
+45.声明变量：修饰符 类型 变量名； 声明函数：修饰符 返回 函数名（参数）
+46.类里面保护数据，不暴露用private， 调用方法，暴露public，但不能返回保护数据的更改器方法，即不能返回指针，否则会破坏封装性，可以用返回克隆值代替。private定义的东西只能在他们的类使用，同时可以被另一个实例调用，即定义类时可以调用另一个实例的private参数，超类不可访问，必须调用super关键字指引父类的公用方法（但不能用于static域内）；public可以被任意的类使用，没有标记可以被同一个包的所有方法访问。protected表示子类可以访问父类的私有域。
+private:本类可见
+默认：本包可见
+proteced：本包与所有子类可见//子类可能不在本包
+public：所有类可见
+47.文件名与public修饰符的类名一致，public公有类只能有一个，私有类可以有很多个，无修饰符是什么修饰（是包内可用）？
+48.构造器与类同名，没有返回值；可以有多个构造器，用参数区分；与new调用。
+49.一个类可以使用所属包的所有类，以及其他包的公有类，利用import来访问其他包。但import两个以上的包需要注意不能有冲突。
+50.import static java.package_name.*;可以使用静态方法和静态域（？）不用加前缀，静态方法是用类名引用的方法
+51.package语句将class放于包内，否则将class放于默认包内，package mulu0.mulu1.mulu2;
+52.javac mulu0/mulu1/***.java;java mulu0.mulu1.***, 源文件放置于mulu0/mulu1中，并且源文件中需要包含package mulu0.mulu1
+53.jar为压缩形式的类文件和子目录
+54.设置库路径，Linux中用:隔开，Windows用；隔开。搜索类文件例如mulu0.mulu1.class_name，将会在第一个路径/mulu0/mulu1/class_name.class搜索。javac c:\mulu0\...\mulu\***.java; java mulu0.mulu1....***
+55.设置类路径可以在编译时 java -classpath c:\xxx\xxx 或设置全局变量CLASSPATH,编译后查找类
+56.package还是不熟悉，要看源码, javac package\c_n.java 
+57.接口可以实现一个或多个接口，接口是类的需求描述，接口不能有实例域，接口=没有实例域的抽象类，接口所有方法自动public（可以不用写），实现接口必须声明public，否则会认为是包可见性，自动降低权限。
+58.public interface i_n<T>{//T?
+	public return_v f0(T p0)//p0 can be change;	
+}
+实现
+class c_n implements i_n<Type0>, i_n1<Type1>{//如果是泛型，泛型编程
+return_v f0(Type0 p0){}
+}
+59.当B是A时，才使用继承，A是父类，B是子类。继承增加新功能，子类保留父类的一切参数与方法，利用super调用复写的方法，但因为private只能当前类可见，若子类调用父类private参数，必须利用super调用父类public方法暴露private参数。 public class c_n0 extends c_n1{}
+
+60.类中方法有两种参数，隐式参数（当前对象，this，用来访问实例域）与显式参数（局部变量）。若局部变量与实例域变量重名，局部变量覆盖实例域。同域内不能重名。
+61.设计一个类确定与外部的交流，与外部交流方法设为public，其他通通private
+62.将通用方法放在超类，特殊方法放在子类。子类构建代码时调用super(p0, p1, p2...)，若没有super则会调用没有参数的父类构造函数，否则报错。
+63.super：调用超类方法，调用超类构造器，不能调用父类参数；this：调用隐式参数，调用该类构造器
+64.无论子类对象赋给父类还是子类（多态），调用方法永远都是调用子类方法（动态绑定，但必须满足父类子类有同名方法，并且子类方法权限要大于等于父类方法权限，才会出发域是父类域，沿着继承链去寻找，若父类无方法会报错）（静态绑定：编译器准确的知道调用哪个方法，有private，static与final修饰），父类参数。但参数调用本类型的，参数不支持复写。
+65.java支持单继承，不支持多继承
+65.父类对象不可以赋值给子类
+66.一个方法如果名与参数都一致就是同一个方法，与返回类型无关
+67.确定一个对象是否是该类对象:o_n instanceof c_n，返回boolean值，c_1 o_1 = (c_1) o_0;当子类变父类又变子类时。o_n instanceof i_n(检测接口名)
+68.抽象类decorator abstract class c_0{
+	decorator abstract r_0 f_0();
+}
+包含抽象方法的类必须声明为抽象，抽象方法具体实现在子类（若无具体实现则为抽象类）,子类必须实现所有的抽象方法，否则报错
+69.抽象类不能被实例化，抽象类可以被继承为抽象类
+70.接口特性
+1.不能实例化（抽象类相同）
+2.能作为声明类型，可以用instanceof检测（相同）
+3.可以被继承（相同）
+4.不能包含实例域与静态方法（不同）（se8后可以有静态方法），但可包含静态常量（相同）（静态常量一般public（便于访问），静态变量用private）
+4.1）接口方法默认实现用default：default return_v f_0(t_0 p_0)
+5.所有东西统统public
+6.类可以实现多个接口（不同，只能实现一个抽象类），实现一个类时不必实现全部方法
+71.静态域位于类与所有实例，共享一个。
+72.并发：
+73.多线程：一个程序同时执行多个线程，每个线程执行一个任务。
+74.多个线程共享一个进程中的所有变量，每个进程都具有自己的资源。
+75.同步：调用必须等到方法调用返回才能后续，并且在方法执行过程中卡住。异步：方法调用立即返回，调用者继续后续操作，方法在另一个线程真实执行，当完成后，再通知调用者。
+76.并发：多个任务交替执行，并且任务可能还具有一定执行顺序，每个时间段只执行一个任务（单个CPU一定是并发的，因为单个cpu只能执行一条指令）。并行：多个任务同时执行（多个CPU才有可能，例如多核CPU）。
+77.临界区：可被多个线程使用的数据。但是每一次只能有一个线程使用。
+78.阻塞：一个线程占用临界区资源，其他操作资源的线程就卡住，导致挂起。
+79.锁：将导致线程不能执行下去。
+  死锁：不同的线程的资源一直被互相占用导致线程无法执行下去。
+  饥饿：低优先级的线程无法获得需要资源导致无法继续
+  活锁：两个线程互相释放资源导致资源在两个线程中跳动，没有一个线程可以正常执行。
+80.阻塞的线程：当使用synchronized关键字或重入锁，则是被阻塞的线程
+81.无饥饿：多个线程获取资源无视优先级。无障碍：多个线程同时操作一个数据，若同时修改，则回滚数据保证数据安全。
+82.悲观锁：一个数据只能被一个线程修改，其余线程挂起。
+83.乐观锁：一个数据能被多个线程修改，若数据被破坏则进行回滚。利用一致性标记来实现。
+84.无锁：多个线程对临界区进行访问，但在一定步数内一定有一个线程离开。
+85.无等待：一定步数内所有线程离开。
+86.进程：是系统进行资源分配和调度的基本单位，也是单进程程序的基本执行实体。进程也是线程的容器，线程是轻量级进程。线程是程序执行的最小单位。进程是资源的集合体，线程在进程内操作资源。
+87.线程状态：正常状态：NEW-start()》RUNNABLE-run()方法结束或抛出异常》TERMNATED，单向进行不可逆。在RUNNABLE中，会因为资源占用，或人为设置进入异常状态，例如：BLOCKED，WAITING,TIMED_WAITING。其中BLOCKED表示阻塞，TIMED_WAITING会在一定时间内唤醒，WAITING等待特殊事件唤醒（wait()等待notify(),join()等待其他线程终止）。
+88.新建线程还会产生调用栈（在堆或栈？），每个线程都会执行一部分代码，同一段代码可以由不同的线程执行，由线程调度器确定。
+89.内部类：
+  1）内部类可以访问外部类所有数据
+  2）其他类寻找不到内部类
+  3）代替回调函数
+  内部类实例初始化：
+  1）外部类的方法中初始化内部类；内部类实例位于外部类实例的局部域，方法执行过后，局部域内存释放。
+  2）outerObject_n.new InnerClass(construct para)
+  引用外部类信息：
+  1）OuterClass.this.v_n(v_n in outer class)(only this represent the innerObject)
+  2)
+90.在一个构造函数中，调用其它构造方法用this()，不能用类名（编译不通过）
+91.调用方法参数个数与定义参数个数不同会产生编译错误
+92.集合的功能需求（接口）与实现分开
+93.集合接口继承：
+  iterable(集合)=>collection=>
+  map(映射)=>
+94.System.out.println(e)//自动调用e.toString()
+95.注解：不影响源代码运行，需要其他工具调用注解
+96.ArrayList VS Vector:ArrayList 是单线程，用于多线程
+97.Lambda:传递代码块，是一个实现接口（只有一个方法）的类的实例，否则需要实现接口方法且类再实例化再传进去//还未执行的代码块
+  Comparator<Stirng> comp = (first, second) -> first.length()-second.length()//可以自动推导输入类型以及return，但自己写的时候加上
+98.方法引用： ::
+  x->System.out.println(x)  =>  System.out::println//只要满足接口
+  this::println
+  super::println
+99.大文件用内存映射（最快），带缓冲输入流（第二快）
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+关键字中的修饰总结：
+abstract：抽象类中的抽象方法，
+final：常量或常量方法
+static：静态方法静态变量，属于类
+
+default：接口方法的默认实现方法
+
+private：类里面可见
+无：包可见
+proteced：本包与所有子类可见
+public：所有类可见
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+design pattern:
+继承：实线加三角
+实现接口：虚线加三角
+有一个：实线加箭头
+1.策略模式
+1）把变化与不会变化的分开，变化的跟主题利用接口耦合
+2）针对接口编程，模块化怼一个小目标
+3）多用组合，少用继承，有利于换零件
+2.观察者模式：
+1）不同对象应该松耦合
+2）在对象之间定义一对多的依赖，当一个对象改变状态，其他对象都会收到通知
+3）
+  1）改变的地方：主题（状态），观察者（数目与类型）
+  2）主题和观察者都使用接口；观察者利用主题接口向主题注册，主题利用观察者接口通知观察者。
+  3）利用组合将观察者组合进主题中。并不利用继承。
+4）主题接口：
+  1）void registerObserver(Observer o)（事先定义的观察者接口）
+  2）void removeObserver(Observer o)进观察者出无
+  3) void notifyObservers()进无出无
+5）观察者接口：
+  1）void update(更新的信息)
+6）主题实现：
+  1) private ArrayList<Observer> observers
+  2) public Subject(){
+	  observers = new ArrayList<Observer>();
+  }
+  3)public registerObserver(Observer o){
+	  observers.add(o)
+  }
+  4)public removeObserver(Observer o){
+	  int i = observers.indexOf(o)
+    if(i >= 0){
+      observers.remove(i);
+    }
+  }
+  5)public void notifyObservers(){
+    for(Observer observer : observers){
+      observer.update(this);
+    }
+  }
+7)接收者实现：
+  1) private T_n v_n;
+  2)public C_n(Subject subject){
+	  subject.registerObserver(this)
+    observable.addObserver(this)//库自带
+  } 
+  3)public void update(更新的信息){
+	  ...
+  }
+8)库自带主题实现：
+  1)public class Subject extends Observable{}
+  2)etChanged();
+  3)notifyObservers();//发送自身
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  计算机系统:
+  1）堆：对象实例空间
+  2）栈：基本类型实例与引用对象指针(Stack 后进先出，头进头拿)，传递值为复制，传递对象为引用。
+  3）slot分配本地变量空间？
+  4）虚指令：跨平台的java指令，待根据平台不同被翻译成汇编（javap -v)
+  5）LocalVariableTable:（javac -g:vars）
+    1）Start 本地变量虚指令起始位置
+    2）Length 本地变量虚指令作用域长度
+    3）Slot 本地变量slot起始位置编号
+    4）Name 本地变量名称
+    5）Signature 本地变量类型
+  6）LineNumberTable:（javac -g:lines)（不同的-g参数用,号连接），表示源文件行号与作用域对应关系
+  7）JVM发出虚指令，由OS去翻译成汇编并执行，JVM无法做计算工作
+  8）Cache Line：Cache 一段连续的内存区域（64字节，1byte=8bit，1kb=1024byte，0.0625kb=64byte），而不是Cache一个内存单元，1字节=8位=0~255=256个不同=16^2=2位16进制,Int 4字节为8位16进制
+  9）二维数组中，第二维数组位于连续内存区域，第一维不连续
+  10）多核CPU中，利用中断来完成调用，处理请求，利用缓冲区来储存指令。
+  11）惊群：多个进程监听同一个端口，当端口得到信号，多个进程同时被唤醒。
+  12）由一个CPU分配指令，让其他CPU执行指令。（CPU与进程的关系？？）
+  13）缓存一致性协议：当同一份数据会被cache在多个CPU中，每个CPU要求知道其他CPU对Cache的修改情况
+  14）多个CPU通过总线相连，每个CPU的Cache除了响应CPU对其读写，也需要监听总线上其他CPU的读写，并作相应处理
+  15）上下文切换：线程执行了一部分内容
+
+
+
+
+
+
+
+
+
+springboot
+1.
+@SpringBootApplication//修饰词是什么意思
+public class XXXApplication{
+  public static void main(String[] args){
+    SpringApplication.run(xxx.class, args);//.class是什么意思
+  }
+}
+2.依赖注入
+  被注入对象//主体，去要东西的人。利用接口替换不同的对象
+  被依赖对象//被需要的东西，实现对象接口
+  三种依赖注入方法：
+  构造方法注入（constructorinjection）
+  setter方法注入（setter injection）
+  接口注入（interface injection）
+
+
+Spring//DI有利于对象之间的解耦，AOP有利于横切关注点与对象的解耦
+1.di依赖注入三种方式
+  1）xml显示配置//最后
+  2）java显式配置//次之（类型安全）
+  3）隐式bean组件扫描和自动装配//最推荐
+2.@Component("ID")//组件类创建bean，若没有ID就是className
+  public class XXX...
+3.@Configuration
+  @ComponentScan(basePackages={"xxPackage", "xxxPackage"})//组件扫描，在指定的包内搜索具有component类，否则在自身的包内搜索
+  @ComponentScan(basePackageClasses={"xxxclass.class", "xxxclass.class"})
+4.
+repositories {
+    mavenCentral()
+}//第三方库源
+5.
+sourceCompatibility = 1.8//java版本
+targetCompatibility = 1.8
+6.
+dependencies {//依赖项
+    compile "joda-time:joda-time:2.2"//编译依赖
+    providedCompile//运行时依赖
+    testCompile "junit:junit:4.12"//测试依赖
+}
+7.
+jar {
+    baseName = 'gs-gradle'//jar名
+    version =  '0.1.0'//版本
+}
+8.
+apply plugin: 'application'
+mainClassName = 'hello.HelloWorld'
+指定入口库
+9.运行程序
+gradle wrapper//gradle wrapper --gradle-version 2.13
+gradlew build
+gradlew run
+gradlew test
+10.
+import org.springframework.beans.factory.annotation.Autowired;
+@Autowired //为当前b变量注入依赖的对象
+private ClassName v;//变量
+@Autowired(required=false) //为当前方法注入依赖的对象，required为false表示若没有注入成功不报异常
+public return_type method_n(ComponentType xx){} v;//根据变量类型注入
+11.
+Junit测试
+import org.junit.runner.RunWith;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+@RunWith(SpringJUnit4ClassRunner.class)
+12.
+import org.springframework.test.context.ContextConfiguration;
+@ContextConfiguration(classes=xxx.class)//上下文设置
+public class ClassNameTest {
+
+  直接接受xxx.class的所有变量
+
+}//类测试
+13.
+  @Test//test方法
+  public void cdShouldNotBeNull() {
+    assertNotNull(cd);
+  }
+14.
+import static org.junit.Assert.*;
+assertNotNull()
+15.
+junit内输出至log
+assertEquals(
+  "Playing Sgt. Pepper's Lonely Hearts Club Band by The Beatles\n", 
+  log.getLog());
+16.
+@Configuration
+public class xxx{}//表明这是一个配置类，包含上下文创建bean的细节
+17.
+  @Bean(name="xxx")//在配置类内装配bean，返回的对象将会变成spring应用上下文的bean，若没有name，ID就是method的名字
+  public return_type method() {//return_type可以是component的父类，
+    return new ComponentType();
+  }
+
+  @Bean(name="xxx")//在配置类内装配bean，返回的对象将会变成spring应用上下文的bean，若没有name，ID就是method的名字
+  public return_type method(ComponentType component_v) {//return_type可以是component的父类，
+    return new ComponentType();
+  }
+18.面向切面编程
+一些被动事件，事件产生的结果数据，包括不想做的事（横切关注点）都可以交给面向切面编程处理
+通知：它必须要完成的工作。抄电表
+  @Before前置通知：方法调用之前调用通知。
+  @After后置通知：方法调用之后调用通知，不关心输出。
+  @AfterReturning返回通知：方法成功执行
+  @AfterThrowing异常通知：方法异常执行
+  @Around环绕通知：通知包裹了被通知的方法？
+连接点：通知与原本的类的连接的点，电表
+切点：确定哪些连接点需要被通知，被分配的抄电表的区域
+切面：通知与切点的结合，要去哪里做什么事
+引入：向现有的类添加新方法或属性
+织入：把切面应用到目标对象并创建新的代理对象的过程，抄电表
+  多个点可以进行织入：
+    编译期：类编译的时候织入（AspectJ）
+    类加载期：目标类加载至JVM时织入，AspectJ 5
+    运行期：应用运行时织入，SpringAOP
+19.包裹切面后，在运行期时，代理类封装了目标类，代理拦截到方法调用时，先执行切面逻辑后执行bean方法。
+20.Spring只支持方法拦截
+21.execution(*xxclass.method(..))//execution表示在方法执行时触发，*表示返回任意类型，..表示使用任意参数
+22.execution(*xxclass.method(..)) and bean('xx')//限制在ID为xx的bean上。
+23.@Before("execution(** concert.Performance.perform(..))")//在调用perform前调用method
+  public void method()
+24.直接定义切点
+  @Pointcut("execution(** concert.Performance.perform(..))")
+  public void performance(){}//直接将切点定义为performance
+  @Before("performance()")
+25.@Configuration
+  @EnableAspectJAutoProxy
+  public class xxClass{}
+26.定义切面
+  @Aspect
+  public class xxClass{}
+
+
+
+
+maven:
+  1.结构：.pom文件：根目录，groupId:项目组，公司；artifactID：项目名；version：版本
+          项目代码：src/main/java/groupId/artifactID.version; package?
+          测试代码：src/test/java
+
+  2.pom文件：<dependencies>
+              <dependency>
+                <groupId>
+                  <artifactID>
+                    <version>
+                      <scope>//将此依赖限制在那个文件，限制依赖的可import范围
+                        <Configuration>
+                          <source>//源代码java版本
+                            <target>//生成java版本
+Junit:
+  1.import org.junit.Test
+    @Test
+    method
+  2.import static.org.junit.Assert.assertEquals
+    assertEquals(Expected:somthing, something to be assert)
+  3.import org.junit.Assert.assertThat
+    assertThat(xxx,xxx)?
+  4.import org.hamcrest.CoreMatchers.equalTo
+    equalTo(xx)
+
+
+IDEA:
+  1.右键目录 mark directory as
+  2.File=>Project Structure=>set SDK or Dependencies
+
+          

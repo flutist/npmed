@@ -1,0 +1,193 @@
+1.wrapper:
+	public class Class_name{//must be Class not class and CLASS
+		public static void main(String[] args){//method must be method not Method, main must be decorate by public
+		}
+	}
+2.String class variable:
+	String v_n = "xxx";
+	String v_n = v_n.substring(start_p, end_p); Dont include end_p, len = end_p - start_p
+	String v_n = v_n.subString(start_p);start_p to end
+	String v_n = v_n0 + v_n1;
+	v_n.length() return length;
+	v_n.charAt(num)//return the numth char, not element
+	v_n.codePointCount(0, v_n.length())//return length in memory
+	String v_n = String.format("xxx %.2f", v_0)
+3.output:
+	System.out.println(v_n)"terminates current line by newline character
+	System.out.print(v_n)
+4.Arrays:
+	dst = Arrays.copyOf(ori, len)//�����ڴ�
+	Arrays.sort(ori)
+	Arrays.deepToString(ori)
+	ori_arr.length
+5.Double��
+	Double.compareTo(num1, num2);
+6.Arrays:
+	Arrays.sort(list0)
+	ArrayList<T> v_n = new ArrayList<T>();//C_n v_n = new C_n()
+	int index = v_n.indexOf(ele)//-1 not exist
+	v_n.remove(index)
+7.Thread:
+	Thread t_n = new Thread(r_n);(r_n?Runnable????????run??)
+	t_n.start()??????????????run()???????????????start???????????
+	Thread t_n = Thread.currentThread()(??????)
+	String s_n = t_n.getName()
+	Thread.sleep(int ms)
+8.Collection(iterable <- collection <- (list,set,queue)):
+import java.util.*;
+
+	Iterator<LeiXing> i_n = c_n.iterator()
+	boolean b_n = i_n.hasNext()
+	E e_n = i_n.next()
+	void = i_n.remove()//??????????????next?remove
+	for(E e_n:c_n){
+
+	}
+	i_n.forEachRemaining(e->do_something);
+	boolean b_n = c_n.add(e)
+	v_c v_n = m_n.put(k_n, v_n)
+	v_c v_n = m_n.get(k_n)
+	int s = m_n.size()
+9.List//??????????????????????????????????????
+	import java.util.*;
+
+	E_c e_n = i_n.previous()
+	boolean b_n = i_n.hasPrevious()
+	i_n.add(e_n)//加元素在迭代点后
+	
+	l_n.add(i_n, e_n)//in ist insert e_n,all element push back
+	l_n.remove(i_n)//不能连续调用两次remove
+	e_c e_n = l_n.get(i_n)
+	e_c e_n = l_n.set(i_n, e_n)
+	List<E> l_n = new LinkedList<>()//???????
+10.LinkedList://多元素使用LinkedList，少元素使用ArrayList
+	List<E> lv = new LinkedList<>();
+	boolean b_v = lv.add(e);//l_v移至e后面
+	E e = lv.remove(i)
+	E e = lv.get(i)
+	E e = lv.set(i, e)
+	int i = lv.indexOf(E e)
+	ListIterator<E> liv = lv.listIterator();//迭代点在所有元素之前,可以附加很多迭代器，但是只可以有一个可以写的迭代器
+	boolean bv = liv.hasnext()
+	E e = liv.next()
+	void v_v = li_v.set(e_v)//设置为迭代点之前的元素（之前调用next）或之后的元素（之前调用previous）
+	int i_v = li_v.nextIndex();//返回迭代点之前元素的索引值
+	int i_v = li_v.previousIndex();//返回迭代点之后元素的索引值
+11.HashTable：散列表， 用于快速查找所需对象，可以设置桶数来设置速度
+	HashCode：为每个对象计算一个整数，表明身份，像身份证验证是否equal，若equal有相同的hashcode
+	属弃用代码
+	接口有Set，实现有HashSet
+	import java.util.HashSet
+	初始化：Set<Type> e = new HashSet<>();Set<Type> e = new HashSet<>(Collection xx);Set<Type> e = new HashSet<>(int 桶数)
+	set.addAll(Collection<> c)
+	set.add(E e)
+12.
+	接口：Map存放键值对s，实现：HashMap, TreeMap，Map中存放的键必须唯一，若put两次相同的键，则第二个值会取代第一个值
+	Map<KeyType, ValueType> map = new HashSet<>()
+	mapSet.put(key, value)
+	value = mapSet.get(key)
+	取键：Set<keyType> keySet = mapSet.keySet()
+	取值：Collection<ValueType> valueSet = mapSet.value()
+	迭代Map：
+		1）
+		Set<keyType> keys = mapSet.keySet()
+		for (String key:keys){}
+		2)
+		for(Map.Entry<k, v> mapEntry:mapSet.entrySet()){
+			KeyType key = entry.getKey();
+			ValueType value = entry.getValue();
+		}
+
+12.Scanner s_n = new Scanner(输入来源);ex:System.in
+	s_n.nextDouble();
+	s_n.nextInt();
+13.时间
+	long e = System.currentTimeMills()
+
+14.Arrays操作，即[]对象
+	List = Arrays.asList(array)
+	array = Arrays.copyOf(array, start, end)
+15.IO：阻塞,Input读取数据至程序，Output写数据至硬盘
+	InputStream：抽象类，读取字节
+		1)abstract int read()：返回的是下个字节，若是返回-1，则是结束
+		2)int bytesAvailable = in.available()
+		3)in.close()
+		4)FileInputStream f_in = new FileInputStream("xxxx")
+		5)DataInputStream d_in = new DataInputStream(other_stream);
+			5-1)double s = din.readDouble();
+			5-2)int i = din.readInt();
+			5-3)
+		6)BufferedInputStream b_in = new BufferedInputStream(other_stream)
+		7)ObjectInputStream out = new ObjectInputStream(other_stream)
+			7-1)ObjectType o = (ObjectType)in.readObject(obj)
+
+	OutputStream:抽象类
+		1)abstract void write(int b)：参数是什么？
+		2)DataOutputStream dout = new DataOutputStream(other_stream)
+			2-1)dout.writeInt()
+			2-2)dout.writeDouble()
+		3)ObjectOutputStream out = new ObjectOutputStream(other_stream)
+			3-1)out.writeObject(obj)
+	Reader:读取两个字节，抽象类
+		1)InputStreamReader i_r = new InputStreamReader(stream, 编码)
+	Writer:写入两个字节，抽象类
+		1)PrintWriter pW = new PrintWriter(String FileName, CharsetName)
+			1-1)pW.println(string)
+		2)
+	java.io.File.separator：文件分隔符
+16.数值类：
+	1)double d = Double.parseDouble("xxx")
+	2)int i = Int.parseInt("xxx")
+17.日期API
+	GregorianCalender calender = new GregorianCalender(year, month-1, day)
+	calender.setTime(Date d)
+	calender.get(Calender.YEAR)
+	calender.get(Calender.MONTH)
+	calender.get(Calender.DAY_OF_MONTH)
+	Date d = calender.getTIme()
+18.序列化，保存对象网络，用于确定确定序列号，用序列号代替对象的内存地址:class ClassName implements Serializable{}
+19.Path:
+	Path path = Paths.get(String0, String1, String2)
+		1)绝对路径：由根部件开头:Unix:"/xxx"，Windows:"C:\"，否则为相对路径
+		2)Path mix = path0.resolve(path1)
+		3)Path sibling = path0.resolveSibing(path1)，quit the path0 sibling
+		4)Path relativePath = path0.relativize(path1),产生相对路径
+		5)normalize去除冗余的.和..
+		6)toAbsolutePath产生绝对路径
+20.File
+	1）InputStream in = Files.newInputStream(path)
+	2)
+21.内存映射：
+	FileChannel channel = FileChannel.open(path, options)
+	int length = (int)channel.size()
+	MappedByteBuffer buffer = channel.map(FileChannel.MapMode.READ_ONLY, 0, length)
+		1)buffer.hasRemaining()
+		2)byte b = buffer.get()
+		3)buffer.limit()
+		4)buffer.get(index)
+	buffer.get(index)
+22.记录程序运行
+	1).long start = System.currentTimeMills()
+	程序运行
+	2).long end = System.currentTimeMills()
+	3).System.out.println((end-start)+"millsseconds")
+23.缓冲区：
+	Buffer抽象类，最常用ByteBuffer和CharBuffer
+	1.容量：预设的缓冲区大小
+	2.读写位置：当前读写数据位置
+	3.界限：超出它读写无意义，即反转时写入数据的大小
+	4.可选标记：可重复读入写出
+	0<=标记<=位置<=界限<=容量
+	put写入缓冲区
+	get读缓冲区
+	flip读=》写
+	remaining:界限位置
+	clear:擦除缓冲区，位置为0
+	allocate:设置缓冲区大小：ByteBuffer buffer = ByteBuffer.allocate(size)
+24.文件加锁：多个进程线程同时操作一个文件，若发现文件被锁，必须等待解锁或者跳过
+	1.FileLock lock = channel.lock()
+	2.FileLock lock = channel.tryLock()，要么锁，要么null
+	3.lock.close()
+	
+
+	

@@ -188,6 +188,10 @@ import java.util.*;
 	1.FileLock lock = channel.lock()
 	2.FileLock lock = channel.tryLock()，要么锁，要么null
 	3.lock.close()
-	
+25.Throwable抽象类
+	1.Error(Java虚拟机错误，未检查错误)
+	2.Exception(程序错误）
+		2.1.IOexception（已检查，具有异常处理器，程序本身没问题）
+		2.2.RuntimeException（未检查，程序错误）	
 
 	

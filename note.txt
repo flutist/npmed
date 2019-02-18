@@ -155,6 +155,25 @@ return_v f0(Type0 p0){}
   this::println
   super::println
 99.大文件用内存映射（最快），带缓冲输入流（第二快）
+100.异常：控制权从产生异常的地方转移至异常控制器。e.getMessage()获取异常信息，e.getClass().getName()获取异常类型
+101.方法抛出异常，methodName（paraType） throws Exception0， Exception1{}，用于抛出已处理异常，调用此方法的方法可以处理异常或继续抛出。
+    抛出异常：throw e;
+    查看异常调用栈：e.printStackTrace()
+102.try{}catch(ExceptionType0 e){}catch(ExceptionType1 e){}finally{}
+  1.发生异常跳过后面代码，执行catch,执行finally
+  2.若无异常，则跳过catch，执行finally
+  3.抛出catch无声明的异常，立刻退出，执行finally，并抛出异常
+103.override方法异常：
+  1.可以抛出基类异常
+  2.若不抛出基类异常必须处理
+  3.不可抛出不是基类异常，必须处理
+104.异常原则：
+  1.异常不是测试
+  2.异常耗费资源
+  3.异常放于循环外
+  4.细化异常抛出类型，细化异常抛出位置
+  5.处理异常或者抛出
+  6.有可能抛出异常就一定要抛出异常
 
 
 
